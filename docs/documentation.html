@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Utility Asset Registry — Documentation</title>
+  <style>
+    :root {
+      --bg: #f4f7f6;
+      --surface: #ffffff;
+      --ink: #1a2b2e;
+      --muted: #5a6e72;
+      --line: #d5e0e2;
+      --accent: #0d6e6e;
+      --accent-soft: #e6f3f3;
+      --warn: #8a4b08;
+      --warn-bg: #fff6e8;
+      --code-bg: #eef3f4;
+      --ok: #1b6b3a;
+      --shadow: 0 10px 30px rgba(26, 43, 46, 0.06);
+      --radius: 12px;
+      --font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      --mono: Consolas, "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #dff0ef 0, transparent 40%),
+        linear-gradient(180deg, #f7fbfb 0%, var(--bg) 40%);
+      line-height: 1.55;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      overflow: auto;
+      padding: 1.5rem 1rem 2rem;
+      border-right: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+    }
+
+    nav .brand {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    nav h1 {
+      font-size: 1.15rem;
+      margin: 0 0 1.25rem;
+      line-height: 1.3;
+    }
+
+    nav a {
+      display: block;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.4rem 0.65rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      margin-bottom: 0.15rem;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    main {
+      padding: 2rem 2.25rem 4rem;
+    }
+
+    header.hero {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    header.hero h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.85rem;
+    }
+
+    header.hero p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    section h2 {
+      margin: 0 0 0.85rem;
+      font-size: 1.35rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section h3 {
+      margin: 1.35rem 0 0.55rem;
+      font-size: 1.05rem;
+      color: var(--accent);
+    }
+
+    p { margin: 0.55rem 0; }
+    ul, ol { margin: 0.4rem 0 0.6rem 1.2rem; padding: 0; }
+    li { margin: 0.25rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.75rem 0 0.25rem;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 0.55rem 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-weight: 650;
+    }
+
+    tr:nth-child(even) td { background: #fafcfc; }
+
+    code, .mono {
+      font-family: var(--mono);
+      font-size: 0.88em;
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      overflow-x: auto;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      line-height: 1.45;
+      margin: 0.7rem 0;
+    }
+
+    .note {
+      background: var(--warn-bg);
+      border-left: 4px solid #d0892b;
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      color: var(--warn);
+      margin: 0.9rem 0;
+    }
+
+    .ok {
+      background: #eaf7ef;
+      border-left: 4px solid var(--ok);
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      margin: 0.9rem 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      background: #fbfdfd;
+    }
+
+    .card strong { display: block; margin-bottom: 0.25rem; }
+
+    .method {
+      display: inline-block;
+      min-width: 3.6rem;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .get { background: #1f6feb; }
+    .post { background: #1b6b3a; }
+    .put { background: #9a6700; }
+    .patch { background: #8250df; }
+    .delete { background: #cf222e; }
+
+    footer {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem 0 0;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; }
+      nav {
+        position: relative;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+      .grid-2 { grid-template-columns: 1fr; }
+      main { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav>
+      <div class="brand">Documentation</div>
+      <h1>Utility Asset Registry</h1>
+      <a href="#overview">1. Overview</a>
+      <a href="#architecture">2. Architecture</a>
+      <a href="#setup">3. Setup</a>
+      <a href="#accounts">4. Accounts &amp; roles</a>
+      <a href="#ingest">5. Ingestion CLI</a>
+      <a href="#cleaning">6. Cleaning &amp; validation</a>
+      <a href="#api">7. Web API</a>
+      <a href="#reports">8. Reports</a>
+      <a href="#security">9. Security &amp; limits</a>
+      <a href="#database">10. Database</a>
+      <a href="#outputs">11. Output files</a>
+      <a href="#testing">12. Testing</a>
+      <a href="#layout">13. Project layout</a>
+      <a href="#quickref">14. Quick reference</a>
+    </nav>
+
+    <main>
+      <header class="hero">
+        <h2>Utility Asset Registry</h2>
+        <p>
+          Backend for a state electricity distribution utility. It cleans daily handheld GPS
+          survey exports, stores trusted asset records in PostgreSQL, and serves them over HTTP
+          to authorised staff and the utility web map.
+        </p>
+        <div class="meta">
+          <span class="chip">Python</span>
+          <span class="chip">FastAPI</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">CLI + REST API</span>
+          <span class="chip">Version 1.0.0</span>
+        </div>
+      </header>
+
+      <section id="overview">
+        <h2>1. Overview</h2>
+        <p>
+          Field crews export a day’s work as a CSV. This application replaces manual re-typing
+          into a spreadsheet with automated cleaning, permanent storage, access control, and
+          queryable network APIs.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <strong>Part A — Ingestion tool</strong>
+            Night-shift operators run one terminal command. Bad rows are rejected with reasons;
+            good rows are stored.
+          </div>
+          <div class="card">
+            <strong>Part B — Web service</strong>
+            Staff and the web map call authenticated HTTP endpoints. Interactive docs live at
+            <code>/docs</code>.
+          </div>
+        </div>
+        <h3>Capabilities</h3>
+        <ul>
+          <li>Load a day’s CSV with a single command</li>
+          <li>Standardise descriptions, coordinates, types, and surveyor names</li>
+          <li>Never drop a bad row silently — write it to a rejects file with a reason</li>
+          <li>Refuse duplicate <code>asset_id</code> values already in the database or the same file</li>
+          <li>Store assets and visit history in PostgreSQL</li>
+          <li>Search, filter, and page assets over the network</li>
+          <li>Role-based access: surveyor vs administrator</li>
+          <li>Cached summary reports for the web map</li>
+          <li>Request logging, rate limiting, and CORS for a configured map origin</li>
+        </ul>
+      </section>
+
+      <section id="architecture">
+        <h2>2. Architecture</h2>
+        <pre>Handheld CSV
+    │
+    ▼
+┌───────────────────┐     rejects.csv / assets.geojson / summary.txt
+│  Ingest CLI       │ ─────────────────────────────────────────────►
+│  cleaning + rules │
+└─────────┬─────────┘
+          │ accepted rows
+          ▼
+┌───────────────────┐
+│  PostgreSQL       │  assets · visits · users
+└─────────┬─────────┘
+          │
+          ▼
+┌───────────────────┐     JWT auth
+│  FastAPI service  │ ◄────────────── staff / web map
+│  CRUD + reports   │
+└───────────────────┘</pre>
+        <p>
+          Domain logic (cleaning, validation, distance) is shared by the CLI and the API so the
+          same rules apply whether data arrives from a file or over the network.
+        </p>
+      </section>
+
+      <section id="setup">
+        <h2>3. Setup</h2>
+        <h3>Requirements</h3>
+        <ul>
+          <li>Python 3.11+</li>
+          <li>PostgreSQL Server (local or enterprise)</li>
+        </ul>
+
+        <h3>Python environment</h3>
+        <pre>copy .env.example .env
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+pip install -e .
+python scripts/setup_local_database.py
+alembic upgrade head
+python main.py</pre>
+
+        <h3>PostgreSQL / pgAdmin (this machine)</h3>
+        <table>
+          <thead>
+            <tr><th>Setting</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Host</td><td><code>localhost</code></td></tr>
+            <tr><td>Port</td><td><code>5433</code> (local PostgreSQL 18)</td></tr>
+            <tr><td>Database</td><td><code>asset_registry</code></td></tr>
+            <tr><td>App user</td><td><code>asset_registry</code> / <code>assetreg123</code></td></tr>
+          </tbody>
+        </table>
+        <div class="note">
+          If the database password contains special characters such as <code>@</code>, URL-encode
+          them in <code>DATABASE_URL</code> (for example <code>@</code> → <code>%40</code>).
+        </div>
+        <p>
+          Create the role and databases with
+          <code>python scripts/setup_local_database.py</code>
+          or by running <code>scripts/init_local_database.sql</code> in pgAdmin.
+        </p>
+      </section>
+
+      <section id="accounts">
+        <h2>4. Accounts &amp; roles</h2>
+        <table>
+          <thead>
+            <tr><th>Role</th><th>Username</th><th>Password</th><th>Permissions</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Administrator</td>
+              <td><code>admin</code></td>
+              <td><code>Admin@123</code></td>
+              <td>Read, add, update, delete, bulk upload, create users</td>
+            </tr>
+            <tr>
+              <td>Surveyor</td>
+              <td><code>surveyor</code></td>
+              <td><code>Surveyor@123</code></td>
+              <td>Read, add, update only (delete refused)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Sign in via <code>POST /auth/login</code>. The response includes an
+          <code>access_token</code>. Send it on later requests as:
+        </p>
+        <pre>Authorization: Bearer &lt;access_token&gt;</pre>
+        <p>
+          The bootstrap admin is created (or password-synced) from
+          <code>BOOTSTRAP_ADMIN_USERNAME</code> / <code>BOOTSTRAP_ADMIN_PASSWORD</code> in
+          <code>.env</code> when the API starts.
+        </p>
+      </section>
+
+      <section id="ingest">
+        <h2>5. Ingestion CLI</h2>
+        <p>For operators who do not need to know Python:</p>
+        <pre>python -m asset_registry.ingest data/survey_export.csv</pre>
+        <h3>Options</h3>
+        <pre>python -m asset_registry.ingest --help
+python -m asset_registry.ingest data/survey_export.csv ^
+  --rejects outputs/rejects.csv ^
+  --map outputs/assets.geojson ^
+  --report outputs/summary.txt
+python -m asset_registry.ingest data/survey_export.csv --strict</pre>
+        <table>
+          <thead>
+            <tr><th>Option</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>csv_path</code></td><td>Path to the handheld export (required)</td></tr>
+            <tr><td><code>--rejects</code></td><td>Rejects file path (default <code>outputs/rejects.csv</code>)</td></tr>
+            <tr><td><code>--map</code></td><td>GeoJSON map file (default <code>outputs/assets.geojson</code>)</td></tr>
+            <tr><td><code>--report</code></td><td>Plain-text summary (default <code>outputs/summary.txt</code>)</td></tr>
+            <tr><td><code>--strict</code></td><td>Abort the whole run on the first rejected row</td></tr>
+          </tbody>
+        </table>
+        <h3>Behaviour</h3>
+        <ul>
+          <li>Confirms every expected column is present before processing</li>
+          <li>Accepts valid new assets into PostgreSQL</li>
+          <li>Rejects invalid rows and continues (unless <code>--strict</code>)</li>
+          <li>Rejects an <code>asset_id</code> that already exists in the database or appears twice in the file</li>
+          <li>Prints rows read / accepted / rejected and the rejects file path</li>
+          <li>Appends one dated line to <code>logs/ingest.log</code></li>
+        </ul>
+        <div class="ok">
+          Re-running the same CSV against a database that already holds those assets accepts
+          <strong>0</strong> rows and rejects duplicates with
+          <code>asset_id: is already in use</code>.
+        </div>
+      </section>
+
+      <section id="cleaning">
+        <h2>6. Cleaning &amp; validation</h2>
+        <h3>Automatic cleaning</h3>
+        <ul>
+          <li>Descriptions: trim, collapse spaces, consistent capitalisation</li>
+          <li>Coordinates with compass letters (e.g. <code>28.6148 N</code>) → signed decimals</li>
+          <li>Asset types matched regardless of letter case</li>
+          <li>Surveyor names standardised so variants of one person count once</li>
+          <li><code>attribute_json</code> parsed into ordinary JSON data</li>
+        </ul>
+        <h3>Validation rules (CSV and API)</h3>
+        <table>
+          <thead>
+            <tr><th>Field</th><th>Rule</th><th>On failure</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>asset_id</code></td><td>Present, <code>XX-1234</code>, not already in use</td><td>Reject</td></tr>
+            <tr><td><code>name</code></td><td>3–120 characters after tidying</td><td>Reject</td></tr>
+            <tr><td><code>asset_type</code></td><td><code>pole</code>, <code>valve</code>, <code>manhole</code>, <code>transformer</code></td><td>Reject</td></tr>
+            <tr><td><code>latitude</code></td><td>Number between −90 and 90</td><td>Reject</td></tr>
+            <tr><td><code>longitude</code></td><td>Number between −180 and 180</td><td>Reject</td></tr>
+            <tr><td><code>elevation_m</code></td><td>Number if present; blank → not recorded</td><td>Store null / reject if non-numeric</td></tr>
+            <tr><td><code>surveyed_on</code></td><td>Valid date, not in the future</td><td>Reject</td></tr>
+            <tr><td><code>status</code></td><td><code>active</code>, <code>decommissioned</code>, <code>proposed</code></td><td>Reject</td></tr>
+            <tr><td><code>condition_score</code></td><td>Whole number 0–10</td><td>Reject</td></tr>
+            <tr><td><code>attribute_json</code></td><td>Valid JSON object</td><td>Reject</td></tr>
+            <tr><td>Cross-field</td><td>Decommissioned assets may not have condition &gt; 2</td><td>Reject</td></tr>
+          </tbody>
+        </table>
+        <h3>Condition bands</h3>
+        <table>
+          <thead><tr><th>Score</th><th>Band</th></tr></thead>
+          <tbody>
+            <tr><td>8–10</td><td>GOOD</td></tr>
+            <tr><td>5–7</td><td>FAIR</td></tr>
+            <tr><td>3–4</td><td>POOR</td></tr>
+            <tr><td>0–2</td><td>CRITICAL</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="api">
+        <h2>7. Web API</h2>
+        <p>Start the service:</p>
+        <pre>python main.py</pre>
+        <ul>
+          <li>Interactive OpenAPI docs: <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noopener">http://127.0.0.1:8000/docs</a></li>
+          <li>Liveness (no login): <a href="http://127.0.0.1:8000/status" target="_blank" rel="noopener">http://127.0.0.1:8000/status</a></li>
+        </ul>
+
+        <h3>Authentication</h3>
+        <table>
+          <thead>
+            <tr><th></th><th>Method</th><th>Path</th><th>Who</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="method post">POST</span></td><td>POST</td><td><code>/auth/login</code></td><td>Anyone</td><td>Sign in and receive a credential</td></tr>
+            <tr><td><span class="method post">POST</span></td><td>POST</td><td><code>/auth/users</code></td><td>Admin</td><td>Create a user account</td></tr>
+            <tr><td><span class="method get">GET</span></td><td>GET</td><td><code>/auth/me</code></td><td>Signed-in</td><td>Current user profile</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Assets (six distinct operations)</h3>
+        <table>
+          <thead>
+            <tr><th></th><th>Path</th><th>Who</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="method get">GET</span></td><td><code>/assets</code></td><td>Signed-in</td><td>List assets (paged)</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/assets/{code}</code></td><td>Signed-in</td><td>Fetch one asset</td></tr>
+            <tr><td><span class="method post">POST</span></td><td><code>/assets</code></td><td>Signed-in</td><td>Add a new asset</td></tr>
+            <tr><td><span class="method put">PUT</span></td><td><code>/assets/{code}</code></td><td>Signed-in</td><td>Replace an asset in full</td></tr>
+            <tr><td><span class="method patch">PATCH</span></td><td><code>/assets/{code}</code></td><td>Signed-in</td><td>Correct selected fields</td></tr>
+            <tr><td><span class="method delete">DELETE</span></td><td><code>/assets/{code}</code></td><td>Admin</td><td>Remove asset and visit history</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/assets/{code}/visits</code></td><td>Signed-in</td><td>Visit history</td></tr>
+          </tbody>
+        </table>
+
+        <h3>List query parameters</h3>
+        <table>
+          <thead><tr><th>Parameter</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>type</code></td><td>Filter by asset type</td></tr>
+            <tr><td><code>status</code></td><td>Filter by status</td></tr>
+            <tr><td><code>surveyor</code></td><td>Filter by surveyor name</td></tr>
+            <tr><td><code>condition_min</code> / <code>condition_max</code></td><td>Condition score range</td></tr>
+            <tr><td><code>q</code></td><td>Case-insensitive word in the description</td></tr>
+            <tr><td><code>limit</code></td><td>Page size (default 25, maximum 100)</td></tr>
+            <tr><td><code>offset</code></td><td>Starting position</td></tr>
+          </tbody>
+        </table>
+        <p>The list response always includes <code>items</code>, <code>total</code>, <code>limit</code>, and <code>offset</code>. A request never returns every asset at once.</p>
+
+        <h3>Bulk upload</h3>
+        <table>
+          <thead><tr><th></th><th>Path</th><th>Who</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="method post">POST</span></td>
+              <td><code>/ingest/upload</code></td>
+              <td>Admin</td>
+              <td>Upload a day’s CSV over the network; returns accepted / rejected counts</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Error outcomes</h3>
+        <p>Responses use a consistent body shape:</p>
+        <pre>{
+  "error": "validation_error | not_found | not_authenticated | forbidden | rate_limited",
+  "message": "Readable explanation",
+  "details": [{ "field": "...", "reason": "..." }],
+  "duration_ms": 12.3
+}</pre>
+      </section>
+
+      <section id="reports">
+        <h2>8. Reports</h2>
+        <table>
+          <thead>
+            <tr><th></th><th>Path</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="method get">GET</span></td><td><code>/reports/summary</code></td><td>Counts, averages, worst asset per type, survey extent, totals (cached up to 60s)</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/reports/repairs</code></td><td>In-service assets with condition &lt; 5</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/reports/most-visited</code></td><td>Assets visited most often</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/reports/nearest</code></td><td>Nearest asset to a lat/lon (great-circle km)</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/reports/surveyors</code></td><td>Distinct surveyors on a given day (<code>?on=YYYY-MM-DD</code>)</td></tr>
+            <tr><td><span class="method get">GET</span></td><td><code>/status</code></td><td>Public liveness check for monitoring</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The summary cache is discarded immediately when any asset is added, corrected, or
+          removed, so a stale summary is never served after a change.
+        </p>
+      </section>
+
+      <section id="security">
+        <h2>9. Security &amp; non-functional behaviour</h2>
+        <ul>
+          <li>Passwords stored with bcrypt (not recoverable)</li>
+          <li>JWT credentials expire after <code>JWT_EXPIRE_MINUTES</code></li>
+          <li>Secrets come from the environment — never hard-coded</li>
+          <li>CORS limited to origins listed in <code>CORS_ORIGINS</code></li>
+          <li>Rate limit: 60 requests per minute per caller (<code>/status</code> exempt)</li>
+          <li>Every request is logged with path, status, and duration</li>
+          <li>JSON responses include <code>duration_ms</code> where applicable</li>
+        </ul>
+      </section>
+
+      <section id="database">
+        <h2>10. Database</h2>
+        <table>
+          <thead><tr><th>Table</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td><code>users</code></td><td>Accounts, hashed passwords, roles</td></tr>
+            <tr><td><code>assets</code></td><td>Current asset master data; unique <code>asset_id</code></td></tr>
+            <tr><td><code>visits</code></td><td>Visit history (date, surveyor, condition, notes)</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Deleting an asset cascades to its visits so no orphaned history remains.
+          Switching from local PostgreSQL to an enterprise server is a change of
+          <code>DATABASE_URL</code> only.
+        </p>
+        <pre>alembic upgrade head</pre>
+      </section>
+
+      <section id="outputs">
+        <h2>11. Output files</h2>
+        <table>
+          <thead><tr><th>File</th><th>Contents</th></tr></thead>
+          <tbody>
+            <tr><td><code>outputs/rejects.csv</code></td><td>Every refused row plus a <code>reason</code> column</td></tr>
+            <tr><td><code>outputs/assets.geojson</code></td><td>Accepted assets as a GeoJSON FeatureCollection</td></tr>
+            <tr><td><code>outputs/summary.txt</code></td><td>Printable summary by type, extent, and totals</td></tr>
+            <tr><td><code>logs/ingest.log</code></td><td>Append-only dated ingest run log</td></tr>
+            <tr><td><code>logs/requests.log</code></td><td>HTTP request log</td></tr>
+            <tr><td><code>logs/app.log</code></td><td>Application log</td></tr>
+          </tbody>
+        </table>
+        <p>Sample handheld export: <code>data/survey_export.csv</code> (62 rows; about 1 in 6 faulty).</p>
+      </section>
+
+      <section id="testing">
+        <h2>12. Testing</h2>
+        <pre>pytest</pre>
+        <p>
+          Tests use a throwaway database named <code>asset_registry_test</code> and never touch
+          live <code>asset_registry</code> data. Coverage includes cleaning boundaries, rejection
+          of bad rows, duplicate re-ingest refusal, network CRUD, missing records, successful
+          sign-in, and surveyor delete refusal.
+        </p>
+      </section>
+
+      <section id="layout">
+        <h2>13. Project layout</h2>
+        <pre>main.py                      Start the API
+requirements.txt             Pinned dependencies
+.env / .env.example          Configuration (secrets not committed)
+scripts/
+  setup_local_database.py    Create local role + databases
+  init_local_database.sql    Same steps for pgAdmin
+docs/
+  documentation.html         This documentation
+src/asset_registry/
+  config.py                  Settings from project-root .env
+  ingest/                    CLI tool and CSV pipeline
+  domain/                    Cleaning, validation, distance
+  db/                        SQLAlchemy models and session
+  api/                       FastAPI app, middleware, routes
+  auth/                      Passwords, JWT, roles
+  services/                  Assets, reports, summary cache
+data/                        Sample survey export
+outputs/                     Rejects, map, summary from a run
+tests/                       Automated tests</pre>
+      </section>
+
+      <section id="quickref">
+        <h2>14. Quick reference</h2>
+        <div class="grid-2">
+          <div class="card">
+            <strong>Start API</strong>
+            <pre style="margin:0.4rem 0 0">python main.py</pre>
+          </div>
+          <div class="card">
+            <strong>Ingest CSV</strong>
+            <pre style="margin:0.4rem 0 0">python -m asset_registry.ingest data/survey_export.csv</pre>
+          </div>
+          <div class="card">
+            <strong>Admin login</strong>
+            <span class="mono">admin / Admin@123</span>
+          </div>
+          <div class="card">
+            <strong>Surveyor login</strong>
+            <span class="mono">surveyor / Surveyor@123</span>
+          </div>
+          <div class="card">
+            <strong>API docs</strong>
+            <span class="mono">http://127.0.0.1:8000/docs</span>
+          </div>
+          <div class="card">
+            <strong>Status</strong>
+            <span class="mono">http://127.0.0.1:8000/status</span>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        Utility Asset Registry — application documentation · FastAPI + PostgreSQL backend
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

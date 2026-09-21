@@ -152,7 +152,16 @@ List query parameters: `type`, `status`, `surveyor`, `condition_min`, `condition
 
 Moving to an enterprise database is a change of `DATABASE_URL` only.
 
-## Tests
+## Documentation
+
+Open the full HTML guide in a browser:
+
+```text
+docs/documentation.html
+```
+
+Or from File Explorer double-click that file. It covers setup, ingestion, validation rules, API endpoints, roles, database, and outputs.
+
 
 ```bash
 pytest
@@ -166,6 +175,9 @@ Uses throwaway database `asset_registry_test` — never the live `asset_registry
 main.py                 start the API (uvicorn)
 requirements.txt        pinned dependencies
 .env / .env.example     secrets and DATABASE_URL (not committed)
+docs/
+  documentation.html         Full application documentation (open in a browser)
+  problem_statement.pdf      Assignment problem statement (optional)
 scripts/
   setup_local_database.py   create local role + databases
   init_local_database.sql   same steps for pgAdmin Query Tool
