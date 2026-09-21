@@ -1,4 +1,55 @@
 asset_id,name,asset_type,latitude,longitude,elevation_m,surveyed_on,surveyor,status,condition_score,attribute_json,reason
+pl-0101,  old  teak  pole  near  market  ,Pole,20.2961 N,85.8245 E,42.0,2026-09-10,ramesh  patel,active,6,"{""height_m"": 9.5, ""material"": ""concrete""}",asset_id: is already in use
+PL-0102,feeder pole at jaydev vihar,POLE,20.3012,85.8190,,2026-09-10,RAMESH PATEL,Active,8,"{""height_m"": 11.0, ""material"": ""steel""}",asset_id: is already in use
+PL-0103,pole beside school wall,pole,20.2888 N,85.8311 E,39.4,2026-09-11,Ramesh Patel,active,4,"{""height_m"": 8.0, ""material"": ""wood""}",asset_id: is already in use
+PL-0104,distribution pole 4 nandankanan road,Pole,20.2740,85.8140,40.4,2026-09-12,anita das,active,5,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0105,distribution pole 5 nandankanan road,pole,20.2750,85.8150,,2026-09-11,anita das,active,6,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0106,distribution pole 6 nandankanan road,Pole,20.2760,85.8160,40.6,2026-09-12,Anita Das,active,7,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0107,distribution pole 7 nandankanan road,pole,20.2770,85.8170,40.7,2026-09-11,anita das,active,8,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0108,distribution pole 8 nandankanan road,Pole,20.2780,85.8180,40.8,2026-09-12,anita das,active,9,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0109,distribution pole 9 nandankanan road,pole,20.2790,85.8190,40.9,2026-09-11,Anita Das,proposed,1,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0110,distribution pole 10 nandankanan road,Pole,20.2800,85.8200,,2026-09-12,anita das,proposed,2,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0111,distribution pole 11 nandankanan road,pole,20.2810,85.8210,41.1,2026-09-11,anita das,active,3,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0112,distribution pole 12 nandankanan road,Pole,20.2820,85.8220,41.2,2026-09-12,Anita Das,active,4,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0113,distribution pole 13 nandankanan road,pole,20.2830,85.8230,41.3,2026-09-11,anita das,active,5,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0114,distribution pole 14 nandankanan road,Pole,20.2840,85.8240,41.4,2026-09-12,anita das,active,6,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0115,distribution pole 15 nandankanan road,pole,20.2850,85.8250,,2026-09-11,Anita Das,active,7,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0116,distribution pole 16 nandankanan road,Pole,20.2860,85.8260,41.6,2026-09-12,anita das,active,8,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0117,distribution pole 17 nandankanan road,pole,20.2870,85.8270,41.7,2026-09-11,anita das,active,9,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0118,distribution pole 18 nandankanan road,Pole,20.2880,85.8280,41.8,2026-09-12,Anita Das,proposed,1,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0119,distribution pole 19 nandankanan road,pole,20.2890,85.8290,41.9,2026-09-11,anita das,proposed,2,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+PL-0120,distribution pole 20 nandankanan road,Pole,20.2900,85.8300,,2026-09-12,anita das,active,3,"{""height_m"": 9.0, ""material"": ""concrete""}",asset_id: is already in use
+VL-0201,  isolation  valve  chamber  1 ,VALVE,20.2515,85.8012,36.0,2026-09-12,s. mohanty,active,4,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0202,  isolation  valve  chamber  2 ,valve,20.2530,85.8024,37.0,2026-09-12,S. Mohanty,active,5,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0203,  isolation  valve  chamber  3 ,VALVE,20.2545,85.8036,38.0,2026-09-12,s. mohanty,active,6,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0204,  isolation  valve  chamber  4 ,valve,20.2560,85.8048,39.0,2026-09-12,S. Mohanty,decommissioned,1,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0205,  isolation  valve  chamber  5 ,VALVE,20.2575,85.8060,40.0,2026-09-12,s. mohanty,active,8,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0206,  isolation  valve  chamber  6 ,valve,20.2590,85.8072,41.0,2026-09-12,S. Mohanty,active,9,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0207,  isolation  valve  chamber  7 ,VALVE,20.2605,85.8084,42.0,2026-09-12,s. mohanty,active,3,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0208,  isolation  valve  chamber  8 ,valve,20.2620,85.8096,43.0,2026-09-12,S. Mohanty,active,3,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0209,  isolation  valve  chamber  9 ,VALVE,20.2635,85.8108,44.0,2026-09-12,s. mohanty,active,3,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0210,  isolation  valve  chamber  10 ,valve,20.2650,85.8120,45.0,2026-09-12,S. Mohanty,active,3,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0211,  isolation  valve  chamber  11 ,VALVE,20.2665,85.8132,46.0,2026-09-12,s. mohanty,active,4,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+VL-0212,  isolation  valve  chamber  12 ,valve,20.2680,85.8144,47.0,2026-09-12,S. Mohanty,active,5,"{""bore_mm"": 150, ""turn_direction"": ""clockwise""}",asset_id: is already in use
+MH-0301,ug cable chamber 1 saheed nagar,Manhole,20.3108,85.8409,41.2,2026-09-13,Bijay Sahu,active,4,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+MH-0302,ug cable chamber 2 saheed nagar,Manhole,20.3116,85.8418,41.2,2026-09-13,Bijay Sahu,active,5,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+MH-0303,ug cable chamber 3 saheed nagar,Manhole,20.3124,85.8427,41.2,2026-09-13,Bijay Sahu,active,6,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+MH-0304,ug cable chamber 4 saheed nagar,Manhole,20.3132,85.8436,41.2,2026-09-13,Bijay Sahu,active,7,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+MH-0305,ug cable chamber 5 saheed nagar,Manhole,20.3140,85.8445,41.2,2026-09-13,Bijay Sahu,active,8,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+MH-0306,ug cable chamber 6 saheed nagar,Manhole,20.3148,85.8454,41.2,2026-09-13,Bijay Sahu,active,9,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+MH-0307,ug cable chamber 7 saheed nagar,Manhole,20.3156,85.8463,41.2,2026-09-13,Bijay Sahu,active,3,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+MH-0308,ug cable chamber 8 saheed nagar,Manhole,20.3164,85.8472,41.2,2026-09-13,Bijay Sahu,active,4,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+MH-0309,ug cable chamber 9 saheed nagar,Manhole,20.3172,85.8481,41.2,2026-09-13,Bijay Sahu,active,5,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+MH-0310,ug cable chamber 10 saheed nagar,Manhole,20.3180,85.8490,41.2,2026-09-13,Bijay Sahu,active,6,"{""depth_m"": 2.1, ""cover_type"": ""cast_iron""}",asset_id: is already in use
+TR-0401,distribution transformer 1 patia,transformer,20.3411,85.7913,48.0,2026-09-14,Anita Das,active,6,"{""kva"": 250, ""phase"": 3}",asset_id: is already in use
+TR-0402,distribution transformer 2 patia,transformer,20.3422,85.7926,48.0,2026-09-14,Anita Das,active,7,"{""kva"": 250, ""phase"": 3}",asset_id: is already in use
+TR-0403,distribution transformer 3 patia,transformer,20.3433,85.7939,48.0,2026-09-14,Anita Das,active,8,"{""kva"": 250, ""phase"": 3}",asset_id: is already in use
+TR-0404,distribution transformer 4 patia,transformer,20.3444,85.7952,48.0,2026-09-14,Anita Das,active,9,"{""kva"": 250, ""phase"": 3}",asset_id: is already in use
+TR-0405,distribution transformer 5 patia,transformer,20.3455,85.7965,48.0,2026-09-14,Anita Das,active,10,"{""kva"": 250, ""phase"": 3}",asset_id: is already in use
+TR-0406,distribution transformer 6 patia,transformer,20.3466,85.7978,48.0,2026-09-14,Anita Das,active,5,"{""kva"": 250, ""phase"": 3}",asset_id: is already in use
+TR-0407,distribution transformer 7 patia,transformer,20.3477,85.7991,48.0,2026-09-14,Anita Das,active,6,"{""kva"": 250, ""phase"": 3}",asset_id: is already in use
+TR-0408,distribution transformer 8 patia,transformer,20.3488,85.8004,48.0,2026-09-14,Anita Das,active,7,"{""kva"": 250, ""phase"": 3}",asset_id: is already in use
+TR-0409,distribution transformer 9 patia,transformer,20.3499,85.8017,48.0,2026-09-14,Anita Das,active,8,"{""kva"": 250, ""phase"": 3}",asset_id: is already in use
 PL-0991,pole with impossible latitude,pole,120.5000,85.8245,40,2026-09-10,Ramesh Patel,active,5,"{""height_m"": 9}",latitude: must be a number between -90 and 90
 PL-0992,pole with unreadable longitude,pole,20.2961,east of temple,40,2026-09-10,Ramesh Patel,active,5,"{""height_m"": 9}",longitude: must be a number between -180 and 180
 PL-0101,duplicate of the first pole,pole,20.2962,85.8246,42,2026-09-10,Ramesh Patel,active,6,"{""height_m"": 9.5}",asset_id: is already in use

@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 from asset_registry.db.models import Asset
 from asset_registry.domain.constants import EXPECTED_COLUMNS
 from asset_registry.domain.validation import validate_record
-from asset_registry.services.assets import persist_new_asset, persist_visit_and_update
+from asset_registry.services.assets import persist_new_asset
 from asset_registry.services.cache import summary_cache
 
 
@@ -69,14 +69,14 @@ def ingest_rows(
     confirm_columns(fieldnames)
     result = IngestResult(source=source)
     seen_in_file: set[str] = set()
+    # Asset codes already stored must not be accepted again (spec: not already in use).
+    existing_in_db = {row[0] for row in db.query(Asset.asset_id).all()}
 
     for raw in rows:
         result.rows_read += 1
         original = _row_as_original({(k.strip().lower() if k else k): v for k, v in raw.items()})
-        # Uniqueness: reject a second copy in this file. A code already stored from
-        # an earlier survey is a repeat visit, not a reject.
-        file_ids = set(seen_in_file)
-        validation = validate_record(original, existing_ids=file_ids, require_unique=True)
+        taken_ids = existing_in_db | seen_in_file
+        validation = validate_record(original, existing_ids=taken_ids, require_unique=True)
         if not validation.ok:
             reason = validation.reason
             if strict:
@@ -91,11 +91,8 @@ def ingest_rows(
         asset = validation.asset
         assert asset is not None
         seen_in_file.add(asset.asset_id)
-        stored = db.query(Asset).filter(Asset.asset_id == asset.asset_id).one_or_none()
-        if stored is None:
-            persist_new_asset(db, asset)
-        else:
-            persist_visit_and_update(db, stored, asset)
+        existing_in_db.add(asset.asset_id)
+        persist_new_asset(db, asset)
         result.accepted.append(asset)
         result.rows_accepted += 1
 

@@ -16,6 +16,22 @@ def test_supplied_file_rejects_bad_rows_and_continues(db_session):
     assert "valid JSON" in reasons
 
 
+def test_reingesting_same_file_rejects_existing_asset_ids(db_session):
+    first = ingest_csv_file(db_session, SAMPLE_CSV)
+    assert first.rows_accepted == 51
+
+    second = ingest_csv_file(db_session, SAMPLE_CSV)
+    assert second.rows_read == 62
+    assert second.rows_accepted == 0
+    assert second.rows_rejected == 62
+    assert all("already in use" in row["reason"] or row["reason"] for row in second.rejects)
+    assert sum(1 for row in second.rejects if "already in use" in row["reason"]) >= 51
+
+    from asset_registry.db.models import Asset
+
+    assert db_session.query(Asset).count() == 51
+
+
 def test_missing_column_stops_the_run(db_session, tmp_path: Path):
     broken = tmp_path / "broken.csv"
     broken.write_text("asset_id,name\nPL-0001,x\n", encoding="utf-8")
