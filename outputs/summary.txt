@@ -1,0 +1,20 @@
+UTILITY ASSET SURVEY SUMMARY
+Run at: 2026-09-21 10:37:43 UTC
+Source: data\survey_export.csv
+
+Type            Surveyed   Avg condition   Worst asset
+------------------------------------------------------
+manhole               10            5.70       MH-0307
+pole                  20            5.20       PL-0109
+transformer            9            7.33       TR-0406
+valve                 12            4.50       VL-0204
+
+Survey extent
+  North: 20.349900
+  South: 20.251500
+  East:  85.849000
+  West:  85.791300
+
+Rows read:      62
+Rows accepted:  51
+Rows rejected:  11

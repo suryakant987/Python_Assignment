@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "asset-registry"
+version = "1.0.0"
+description = "Backend for cleaning, storing and serving electricity utility field assets."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Utility Asset Registry" }]
+dependencies = [
+    "fastapi==0.116.1",
+    "uvicorn[standard]==0.35.0",
+    "sqlalchemy==2.0.43",
+    "psycopg[binary]==3.2.9",
+    "pydantic-settings==2.10.1",
+    "PyJWT==2.10.1",
+    "bcrypt==4.3.0",
+    "python-multipart==0.0.20",
+    "alembic==1.16.4",
+    "python-dotenv==1.1.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.4.1",
+    "httpx==0.28.1",
+]
+
+[project.scripts]
+ingest-survey = "asset_registry.ingest.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"

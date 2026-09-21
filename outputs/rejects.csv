@@ -1,0 +1,12 @@
+asset_id,name,asset_type,latitude,longitude,elevation_m,surveyed_on,surveyor,status,condition_score,attribute_json,reason
+PL-0991,pole with impossible latitude,pole,120.5000,85.8245,40,2026-09-10,Ramesh Patel,active,5,"{""height_m"": 9}",latitude: must be a number between -90 and 90
+PL-0992,pole with unreadable longitude,pole,20.2961,east of temple,40,2026-09-10,Ramesh Patel,active,5,"{""height_m"": 9}",longitude: must be a number between -180 and 180
+PL-0101,duplicate of the first pole,pole,20.2962,85.8246,42,2026-09-10,Ramesh Patel,active,6,"{""height_m"": 9.5}",asset_id: is already in use
+,broken stencil pole with no code,pole,20.2970,85.8250,41,2026-09-10,Ramesh Patel,active,5,"{""height_m"": 8}",asset_id: is missing
+POLE-12,asset code not in utility format,pole,20.2971,85.8251,41,2026-09-10,Ramesh Patel,active,5,"{""height_m"": 8}","asset_id: must be two capital letters, a hyphen and four digits (for example PL-0142)"
+PL-0993,condition rating off the scale,pole,20.2972,85.8252,41,2026-09-10,Ramesh Patel,active,14,"{""height_m"": 8}",condition_score: must be a whole number between 0 and 10
+PL-0994,condition rating left blank,pole,20.2973,85.8253,41,2026-09-10,Ramesh Patel,active,,"{""height_m"": 8}",condition_score: is missing
+PL-0995,survey recorded in the future,pole,20.2974,85.8254,41,2099-03-01,Ramesh Patel,active,5,"{""height_m"": 8}",surveyed_on: must not be later than today
+PL-0996,attribute snippet is not json,pole,20.2975,85.8255,41,2026-09-10,Ramesh Patel,active,5,{height: 9},attribute_json: must be valid JSON
+PL-0997,unrecognised kind of asset,cable,20.2976,85.8256,41,2026-09-10,Ramesh Patel,active,5,"{""length_m"": 40}","asset_type: must be one of: pole, valve, manhole, transformer"
+PL-0998,decommissioned but rated as new,pole,20.2977,85.8257,41,2026-09-10,Ramesh Patel,decommissioned,8,"{""height_m"": 8}",condition_score: a decommissioned asset may not have a condition rating above 2
