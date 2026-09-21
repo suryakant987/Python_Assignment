@@ -16,4 +16,3 @@ htmlcov/
 .vscode/
 .DS_Store
 Thumbs.db
-alembic/versions/__pycache__/

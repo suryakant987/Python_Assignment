@@ -69,7 +69,6 @@ python -m venv venv
 pip install -r requirements.txt
 pip install -e .
 python scripts/setup_local_database.py
-alembic upgrade head
 python main.py
 ```
 

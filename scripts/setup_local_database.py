@@ -117,9 +117,8 @@ def main() -> int:
 
     print("\nDone. Next steps:")
     print("  1. Confirm DATABASE_URL in .env uses asset_registry / assetreg123")
-    print("  2. alembic upgrade head")
-    print("  3. python main.py")
-    print("  4. In pgAdmin: refresh -> Databases -> asset_registry")
+    print("  2. python main.py")
+    print("  3. In pgAdmin: refresh -> Databases -> asset_registry")
     return 0
 
 

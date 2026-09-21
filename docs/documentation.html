@@ -373,7 +373,6 @@ python -m venv venv
 pip install -r requirements.txt
 pip install -e .
 python scripts/setup_local_database.py
-alembic upgrade head
 python main.py</pre>
 
         <h3>PostgreSQL / pgAdmin (this machine)</h3>
@@ -634,9 +633,9 @@ python -m asset_registry.ingest data/survey_export.csv --strict</pre>
         <p>
           Deleting an asset cascades to its visits so no orphaned history remains.
           Switching from local PostgreSQL to an enterprise server is a change of
-          <code>DATABASE_URL</code> only.
+          <code>DATABASE_URL</code> only. Tables are created automatically when the
+          API or ingest tool starts (<code>init_db</code>).
         </p>
-        <pre>alembic upgrade head</pre>
       </section>
 
       <section id="outputs">
